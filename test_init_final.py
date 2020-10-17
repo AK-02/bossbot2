@@ -1078,7 +1078,7 @@ while True:
 			command_list += '、'.join(command[18]) + '\n -> 現在時刻\n\n'     #!현재시간
 			command_list += '、'.join(command[11]) + '　(スペース)[人数]：(コロン)[金額]\n -> 実質分配金額を計算するわ！(税率５％基準)\n\n'                             #!분배
 			command_list += '、'.join(command[12]) + '　(スペース)[抽選人数]：(コロン)[名前１]：(コロン)[名前２]...\n -> 競売ではなく抽選で決める際活用してねー( ・∇・)！\n\n'     #!사다리
-			command_list += '、'.join(command[24]) + '　(スペース)[名前１]：(コロン)[名前２]：(コロン)[名前３]...\n -> ワクワクレーシング！今日もあたしが一位よー！(最大１２名まで）\n\n'            #!경주
+			command_list += '、'.join(command[24]) + '　(スペース)[名前１]：(コロン)[名前２]：(コロン)[名前３]...\n -> ワクワクレーシング！今日もわたしが一位よー！(最大１２名まで）\n\n'            #!경주
 			command_list += '\n<何かおかしくなったら?>\n\n'
 			command_list += '、'.join(command[8]) + '\n -> データを全て正しく整理し、DBに入れ直するわ！\n\n'      #!명치
 			command_list += '、'.join(command[9]) + '\n -> ボットを再起動するわ！\n\n'                      #!재시작
@@ -1100,7 +1100,7 @@ while True:
 			# command_list += command[12] + '：[名前]\n -> <アップデート予定> 血盟の予算管理用の機能よー( ・∇・)！\n\n'     #!정산
 			# command_list += command[15] + '：[内容]\n -> <アップデート予定> TTS(テキストをボットが読み上げる)機能よー( ・∇・)！\n\n'     #!v
 			# command_list += command[22] + '\n -> キル記録を初期化するわ！\n\n'   #!킬초기화
-			# command_list += command[23] + '\n -> キル回数を確認するわ！あたしに殺された雑魚はだれかしら！\n\n'     #!킬횟수 확인
+			# command_list += command[23] + '\n -> キル回数を確認するわ！わたしに殺された雑魚はだれかしら！\n\n'     #!킬횟수 확인
 			# command_list += command[23] + '：[名前]\n\n'                     #!킬
 			# command_list += command[24] + '：[名前]\n\n'                     #!킬삭제
 			command_list += '\n'
