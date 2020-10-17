@@ -620,7 +620,7 @@ async def task():
 									tmp_bossTime[i] = bossTime[i] = nextTime = tmp_bossTime[i]+datetime.timedelta(hours=int(bossData[i][1]), minutes=int(bossData[i][5]))
 									tmp_bossTimeString[i] = bossTimeString[i] = nextTime.strftime('%H:%M:%S')
 									tmp_bossDateString[i] = bossDateString[i] = nextTime.strftime('%Y-%m-%d')
-									await client.get_channel(channel).send("```" +  bossData[i][0] + 'のエンド時間が入力されなかったの！。未記入処理するわー( ・∇・)！```', tts=False)
+									await client.get_channel(channel).send("```" +  bossData[i][0] + 'のエンド時間が入力されなかったの！未記入処理するわー( ・∇・)！```', tts=False)
 									embed = discord.Embed(
 										description= '```次、' + bossData[i][0] + 'の湧き予想時間は ' + bossTimeString[i][:5] + ' よー( ・∇・)！```',
 										color=0xff0000
@@ -1067,40 +1067,40 @@ while True:
 			command_list += '、'.join(command[22]) + '\n -> 全体ボス湧き情報の一覧を表示するわ！。\n\n'                      #보스탐
 			command_list += '、'.join(command[17]) + '\n -> DBに登録されている各ボスの名称と湧き時間を表示するわ！\n\n'         #!리젠
 			command_list += '\n<2.ボスの情報記録>\n\n'
-			command_list += '[ボス名]エンド または [ボス名]エンド0000\n -> 例えば、「Gドレエンド」と入力すると自動でエンド時間を記録します。\n -> 「Gドレエンド1530」のように指定時間の入力も可能よー( ・∇・)！\n\n'
+			command_list += '[ボス名]エンド または [ボス名]エンド0000\n -> 例えば、「Gドレエンド」と入力すると自動でエンド時間を記録するわよ！\n -> 「Gドレエンド1530」のように指定時間の入力も可能よー( ・∇・)！\n\n'
 			command_list += '[ボス名]なし または [ボス名]なし0000\n -> ボスが湧かなかった場合、記録しておくための機能よー( ・∇・)！\n\n'
-			command_list += '[ボス名]予想0000\n -> 次のボス湧き予想時間を登録できます。\n\n'
-			command_list += '[ボス名]　(スペース)[メモ内容]\n[ボス名]：(コロン)[メモ内容]\n -> 該当ボスに何か情報をメモしたい場合使います。\n\n'
+			command_list += '[ボス名]予想0000\n -> 次のボス湧き予想時間を登録できるわよ！\n\n'
+			command_list += '[ボス名]　(スペース)[メモ内容]\n[ボス名]：(コロン)[メモ内容]\n -> 該当ボスに何か情報をメモしたい場合使うのよ！\n\n'
 			command_list += '[ボス名]メモ削除\n -> ボスに登録したメモを削除\n\n'
-			command_list += '[ボス名]削除\n -> ボスのエンド時間記録を削除します。\n\n'
-			command_list += '、'.join(command[7]) + '\n -> 登録されているボスエンド記録を全てDBから削除します。（復元可能）\n * メンテナンス後におすすめ。\n\n'       #!초기화
+			command_list += '[ボス名]削除\n -> ボスのエンド時間記録を削除するわ！\n\n'
+			command_list += '、'.join(command[7]) + '\n -> 登録されているボスエンド記録を全てDBから削除するわ！（復元可能）\n * メンテナンス後におすすめね！\n\n'       #!초기화
 			command_list += '\n<便利機能>\n\n'
 			command_list += '、'.join(command[18]) + '\n -> 現在時刻\n\n'     #!현재시간
-			command_list += '、'.join(command[11]) + '　(スペース)[人数]：(コロン)[金額]\n -> 実質分配金額を計算します。(税率５％基準)\n\n'                             #!분배
+			command_list += '、'.join(command[11]) + '　(スペース)[人数]：(コロン)[金額]\n -> 実質分配金額を計算するわ！(税率５％基準)\n\n'                             #!분배
 			command_list += '、'.join(command[12]) + '　(スペース)[抽選人数]：(コロン)[名前１]：(コロン)[名前２]...\n -> 競売ではなく抽選で決める際活用してねー( ・∇・)！\n\n'     #!사다리
-			command_list += '、'.join(command[24]) + '　(スペース)[名前１]：(コロン)[名前２]：(コロン)[名前３]...\n -> ワクワクレーシング！(最大１２名まで）\n\n'            #!경주
+			command_list += '、'.join(command[24]) + '　(スペース)[名前１]：(コロン)[名前２]：(コロン)[名前３]...\n -> ワクワクレーシング！今日もあたしが一位よー！(最大１２名まで）\n\n'            #!경주
 			command_list += '\n<何かおかしくなったら?>\n\n'
-			command_list += '、'.join(command[8]) + '\n -> データを全て正しく整理し、DBに入れ直します。\n\n'      #!명치
-			command_list += '、'.join(command[9]) + '\n -> ボットを再起動します。\n\n'                      #!재시작
+			command_list += '、'.join(command[8]) + '\n -> データを全て正しく整理し、DBに入れ直するわ！\n\n'      #!명치
+			command_list += '、'.join(command[9]) + '\n -> ボットを再起動するわ！\n\n'                      #!재시작
 			command_list += '\n<設定>\n\n'
-			command_list += '、'.join(command[2]) + '\n -> 設定を確認します。\n\n'     #!설정확인
-			command_list += '、'.join(command[3]) + '\n -> 移動可能なテキストチャンネルのリストを表示します。\n\n'              #!채널확인
-			command_list += '、'.join(command[4]) + '　(スペース)[チャンネル名]\n -> 指定したチャンネルに移動します。\n\n'               #!채널이동
+			command_list += '、'.join(command[2]) + '\n -> 設定を確認するわ！\n\n'     #!설정확인
+			command_list += '、'.join(command[3]) + '\n -> 移動可能なテキストチャンネルのリストを表示するわ！\n\n'              #!채널확인
+			command_list += '、'.join(command[4]) + '　(スペース)[チャンネル名]\n -> 指定したチャンネルに移動するわ！\n\n'               #!채널이동
 			# command_list += '\n<未使用機能>\n'
-			# command_list += command[21] + '\n -> 固定時間ボスを分け、全体ボス湧き情報の一覧を表示します。\n\n'        #!보스탐
-			# command_list += command[14] + ' または ！つぎ\n -> もうすぐで沸くボスのリストを簡略に表示します。\n\n'     #!q
-			# command_list += command[9] + '\n -> 確認されていないボスを表示します。\n\n'                         #!미예약
-			# command_list += command[4] + '\n -> 召喚したユーザーのいるボイスチャンネルにボットが召喚されます。\n\n'     #!소환
-			# command_list += command[19] + '：[内容]\n -> ボットの状態メッセージを変更します。\n\n'     #!상태
-			# command_list += command[18] + '\n -> 登録されているお知らせを確認できます。\n\n'     #!공지
-			# command_list += command[18] + '：[お知らせ内容]\n -> お知らせを登録できます。\n\n'   #!공지
-			# command_list += command[18] + '削除\n -> 登録されているお知らせを削除します。\n\n'    #!공지
+			# command_list += command[21] + '\n -> 固定時間ボスを分け、全体ボス湧き情報の一覧を表示するわ！\n\n'        #!보스탐
+			# command_list += command[14] + ' または ！つぎ\n -> もうすぐで沸くボスのリストを簡略に表示するわ！\n\n'     #!q
+			# command_list += command[9] + '\n -> 確認されていないボスを表示するわ！\n\n'                         #!미예약
+			# command_list += command[4] + '\n -> 召喚したユーザーのいるボイスチャンネルにお邪魔するわー！\n\n'     #!소환
+			# command_list += command[19] + '：[内容]\n -> ボットの状態メッセージを変更するわ！\n\n'     #!상태
+			# command_list += command[18] + '\n -> 登録されているお知らせを確認できるわよ！\n\n'     #!공지
+			# command_list += command[18] + '：[お知らせ内容]\n -> お知らせを登録できるわよ！\n\n'   #!공지
+			# command_list += command[18] + '削除\n -> 登録されているお知らせを削除するわ！\n\n'    #!공지
 			# command_list += command[5] + '\n -> <使用禁止> ボット管理者用の機能よー( ・∇・)！\n\n'     #!불러오기
-			# command_list += command[13] + ' または ' + command[13] + '0000\n -> ボス全体の時間を一括で入力します。\n\n'     #!보스일괄
+			# command_list += command[13] + ' または ' + command[13] + '0000\n -> ボス全体の時間を一括で入力するわ！\n\n'     #!보스일괄
 			# command_list += command[12] + '：[名前]\n -> <アップデート予定> 血盟の予算管理用の機能よー( ・∇・)！\n\n'     #!정산
 			# command_list += command[15] + '：[内容]\n -> <アップデート予定> TTS(テキストをボットが読み上げる)機能よー( ・∇・)！\n\n'     #!v
-			# command_list += command[22] + '\n -> キル記録を初期化します。\n\n'   #!킬초기화
-			# command_list += command[23] + '\n -> キル回数を確認します。\n\n'     #!킬횟수 확인
+			# command_list += command[22] + '\n -> キル記録を初期化するわ！\n\n'   #!킬초기화
+			# command_list += command[23] + '\n -> キル回数を確認するわ！あたしに殺された雑魚はだれかしら！\n\n'     #!킬횟수 확인
 			# command_list += command[23] + '：[名前]\n\n'                     #!킬
 			# command_list += command[24] + '：[名前]\n\n'                     #!킬삭제
 			command_list += '\n'
@@ -1111,8 +1111,8 @@ while True:
 					)
 			embed.add_field(
 					name="----- 注意 -----",
-					value= '```分単位でボスを管理しているため、最大59秒まで湧き時間に誤差があります。```'
-					#value= '```日本語の場合は「！」を、英語の場合は「!」を使い分けてください。\n(ex.！説明書、!v)```'
+					value= '```分単位でボスを管理してるから、最大59秒まで湧き時間に誤差があるわよー( ・∇・)！```'
+					#value= '```日本語の場合は「！」を、英語の場合は「!」を使い分けてね！。\n(ex.！説明書、!v)```'
 					)
 			await ctx.send( embed=embed, tts=False)
 		else:
@@ -1422,7 +1422,7 @@ while True:
 			#voice:await voice_client1.disconnect()
 			#await FixedBossDateSave()
 			#await client.get_channel(channel).send('<보탐봇 재시작 중... 갑자기 인사해도 놀라지마세요!>', tts=False)
-			await ctx.send('システムを再起動します。<所要時間：約５分>', tts=False)
+			await ctx.send('システムを再起動するわ！<所要時間：約５分>', tts=False)
 			print("보탐봇강제재시작!")
 			await asyncio.sleep(2)
 
@@ -2424,9 +2424,9 @@ while True:
 
 				for j in range(len(random_pos[0])):
 					if j%2 == 0:
-						output =  ':camera: :camera_with_flash: :camera:  楽しいレーシング！  :camera_with_flash: :camera: :camera_with_flash:\n'
+						output =  ':camera: :camera_with_flash: :camera:  楽しいレーシング！今日もわたしが一位よおおおおお！  :camera_with_flash: :camera: :camera_with_flash:\n'
 					else :
-						output =  ':camera_with_flash: :camera: :camera_with_flash:  楽しいレーシング！  :camera: :camera_with_flash: :camera:\n'
+						output =  ':camera_with_flash: :camera: :camera_with_flash:  楽しいレーシング！今日もわたしが一位よおおおおお！  :camera: :camera_with_flash: :camera:\n'
 					str_racing_field = []
 					for i in range(len(racing_member)):
 						temp_pos = cur_pos[i]
