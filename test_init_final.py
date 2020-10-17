@@ -449,7 +449,7 @@ async def task():
 		if log_stream.getvalue().find("Awaiting") != -1:
 			log_stream.truncate(0)
 			log_stream.seek(0)
-			await client.get_channel(channel).send( '<接続エラーが発生しました。直らない場合、管理者までご連絡ください！>', tts=False)
+			await client.get_channel(channel).send( '<接続エラーが発生したわよー( ・∇・)！直らない場合、管理者までご連絡ください！>', tts=False)
 			await dbSave()
 			raise SystemExit
 
@@ -467,7 +467,7 @@ async def task():
 			if endTime.strftime('%Y-%m-%d ') + endTime.strftime('%H:%M:%S') == now.strftime('%Y-%m-%d ') + now.strftime('%H:%M:%S'):
 				await dbSave()
 				await FixedBossDateSave()
-				await client.get_channel(channel).send('<再起動します。>', tts=False)
+				await client.get_channel(channel).send('<ちょっと寝てすぐ起きるわー( ・∇・)！>', tts=False)
 				print("보탐봇재시작!")
 				endTime = endTime + datetime.timedelta(days = int(basicSetting[13]))
 				#voice:await voice_client1.disconnect()
@@ -605,7 +605,7 @@ async def task():
 								bossMungFlag[i] = False
 								#bossMungCnt[i] = 0
 								bossAutoMungCnt[i] = 0
-								await client.get_channel(channel).send('```' + bossData[i][0] + 'の未記入処理回数が' + basicSetting[17] + '回を超えました。\n管理されていないボスとして時間記録を削除します。```', tts=False)
+								await client.get_channel(channel).send('```' + bossData[i][0] + 'の未記入処理回数が' + basicSetting[17] + '回を超えたわね・・・。\n管理されていないボスとして時間記録を削除するわー( ・∇・)。```', tts=False)
 								print ('자동미입력 횟수초과 <' + bossData[i][0] + '> 삭제완료')
 								#await dbSave()
 
@@ -620,9 +620,9 @@ async def task():
 									tmp_bossTime[i] = bossTime[i] = nextTime = tmp_bossTime[i]+datetime.timedelta(hours=int(bossData[i][1]), minutes=int(bossData[i][5]))
 									tmp_bossTimeString[i] = bossTimeString[i] = nextTime.strftime('%H:%M:%S')
 									tmp_bossDateString[i] = bossDateString[i] = nextTime.strftime('%Y-%m-%d')
-									await client.get_channel(channel).send("```" +  bossData[i][0] + 'のエンド時間が入力されませんでした。未記入処理します。```', tts=False)
+									await client.get_channel(channel).send("```" +  bossData[i][0] + 'のエンド時間が入力されなかったの！。未記入処理するわー( ・∇・)！```', tts=False)
 									embed = discord.Embed(
-										description= '```次、' + bossData[i][0] + 'の湧き予想時間は ' + bossTimeString[i][:5] + ' です。```',
+										description= '```次、' + bossData[i][0] + 'の湧き予想時間は ' + bossTimeString[i][:5] + ' よー( ・∇・)！```',
 										color=0xff0000
 										)
 									await client.get_channel(channel).send(embed=embed, tts=False)
@@ -637,9 +637,9 @@ async def task():
 									tmp_bossTime[i] = bossTime[i] = nextTime = tmp_bossTime[i]+datetime.timedelta(hours=int(bossData[i][1]), minutes=int(bossData[i][5]))
 									tmp_bossTimeString[i] = bossTimeString[i] = nextTime.strftime('%H:%M:%S')
 									tmp_bossDateString[i] = bossDateString[i] = nextTime.strftime('%Y-%m-%d')
-									await client.get_channel(channel).send("```" + bossData[i][0] + 'の「エンド」、または「なし」が入力されませんでした。未記入処理します。```')
+									await client.get_channel(channel).send("```" + bossData[i][0] + 'の「エンド」、または「なし」が入力されなかったの！未記入処理するわー( ・∇・)！```')
 									embed = discord.Embed(
-										description= '```次、' + bossData[i][0] + 'の湧き予想時間は ' + bossTimeString[i][:5] + ' です。```',
+										description= '```次、' + bossData[i][0] + 'の湧き予想時間は ' + bossTimeString[i][:5] + ' よー( ・∇・)！```',
 										color=0xff0000
 										)
 									await client.get_channel(channel).send(embed=embed, tts=False)
@@ -850,7 +850,7 @@ async def LadderFunc(number, ladderlist, channelVal):
 			)
 		await channelVal.send(embed=embed, tts=False)
 	else:
-		await channelVal.send('```抽選人数が参加人数と同じか、多いです。設定し直してください。```', tts=False)
+		await channelVal.send('```抽選人数が参加人数と同じか、多いよー( ・∇・)！設定し直してねー( ・∇・)！```', tts=False)
 
 #초성추출 함수
 def convertToInitialLetters(text):
@@ -1064,20 +1064,20 @@ while True:
 		if ctx.message.channel.id == basicSetting[7]:
 			command_list = ''
 			command_list += '<1.ボスの情報確認>\n\n'
-			command_list += '、'.join(command[22]) + '\n -> 全体ボス湧き情報の一覧を表示します。\n\n'                      #보스탐
-			command_list += '、'.join(command[17]) + '\n -> DBに登録されている各ボスの名称と湧き時間を表示します。\n\n'         #!리젠
+			command_list += '、'.join(command[22]) + '\n -> 全体ボス湧き情報の一覧を表示するわ！。\n\n'                      #보스탐
+			command_list += '、'.join(command[17]) + '\n -> DBに登録されている各ボスの名称と湧き時間を表示するわ！\n\n'         #!리젠
 			command_list += '\n<2.ボスの情報記録>\n\n'
-			command_list += '[ボス名]エンド または [ボス名]エンド0000\n -> 例えば、「Gドレエンド」と入力すると自動でエンド時間を記録します。\n -> 「Gドレエンド1530」のように指定時間の入力も可能です。\n\n'
-			command_list += '[ボス名]なし または [ボス名]なし0000\n -> ボスが湧かなかった場合、記録しておくための機能です。\n\n'
+			command_list += '[ボス名]エンド または [ボス名]エンド0000\n -> 例えば、「Gドレエンド」と入力すると自動でエンド時間を記録します。\n -> 「Gドレエンド1530」のように指定時間の入力も可能よー( ・∇・)！\n\n'
+			command_list += '[ボス名]なし または [ボス名]なし0000\n -> ボスが湧かなかった場合、記録しておくための機能よー( ・∇・)！\n\n'
 			command_list += '[ボス名]予想0000\n -> 次のボス湧き予想時間を登録できます。\n\n'
 			command_list += '[ボス名]　(スペース)[メモ内容]\n[ボス名]：(コロン)[メモ内容]\n -> 該当ボスに何か情報をメモしたい場合使います。\n\n'
-			command_list += '[ボス名]メモ削除\n -> ボスに登録したメモを削除します。\n\n'
+			command_list += '[ボス名]メモ削除\n -> ボスに登録したメモを削除\n\n'
 			command_list += '[ボス名]削除\n -> ボスのエンド時間記録を削除します。\n\n'
 			command_list += '、'.join(command[7]) + '\n -> 登録されているボスエンド記録を全てDBから削除します。（復元可能）\n * メンテナンス後におすすめ。\n\n'       #!초기화
 			command_list += '\n<便利機能>\n\n'
 			command_list += '、'.join(command[18]) + '\n -> 現在時刻\n\n'     #!현재시간
 			command_list += '、'.join(command[11]) + '　(スペース)[人数]：(コロン)[金額]\n -> 実質分配金額を計算します。(税率５％基準)\n\n'                             #!분배
-			command_list += '、'.join(command[12]) + '　(スペース)[抽選人数]：(コロン)[名前１]：(コロン)[名前２]...\n -> 競売ではなく抽選で決める際活用してください。\n\n'     #!사다리
+			command_list += '、'.join(command[12]) + '　(スペース)[抽選人数]：(コロン)[名前１]：(コロン)[名前２]...\n -> 競売ではなく抽選で決める際活用してねー( ・∇・)！\n\n'     #!사다리
 			command_list += '、'.join(command[24]) + '　(スペース)[名前１]：(コロン)[名前２]：(コロン)[名前３]...\n -> ワクワクレーシング！(最大１２名まで）\n\n'            #!경주
 			command_list += '\n<何かおかしくなったら?>\n\n'
 			command_list += '、'.join(command[8]) + '\n -> データを全て正しく整理し、DBに入れ直します。\n\n'      #!명치
@@ -1095,10 +1095,10 @@ while True:
 			# command_list += command[18] + '\n -> 登録されているお知らせを確認できます。\n\n'     #!공지
 			# command_list += command[18] + '：[お知らせ内容]\n -> お知らせを登録できます。\n\n'   #!공지
 			# command_list += command[18] + '削除\n -> 登録されているお知らせを削除します。\n\n'    #!공지
-			# command_list += command[5] + '\n -> <使用禁止> ボット管理者用の機能です。\n\n'     #!불러오기
+			# command_list += command[5] + '\n -> <使用禁止> ボット管理者用の機能よー( ・∇・)！\n\n'     #!불러오기
 			# command_list += command[13] + ' または ' + command[13] + '0000\n -> ボス全体の時間を一括で入力します。\n\n'     #!보스일괄
-			# command_list += command[12] + '：[名前]\n -> <アップデート予定> 血盟の予算管理用の機能です。\n\n'     #!정산
-			# command_list += command[15] + '：[内容]\n -> <アップデート予定> TTS(テキストをボットが読み上げる)機能です。\n\n'     #!v
+			# command_list += command[12] + '：[名前]\n -> <アップデート予定> 血盟の予算管理用の機能よー( ・∇・)！\n\n'     #!정산
+			# command_list += command[15] + '：[内容]\n -> <アップデート予定> TTS(テキストをボットが読み上げる)機能よー( ・∇・)！\n\n'     #!v
 			# command_list += command[22] + '\n -> キル記録を初期化します。\n\n'   #!킬초기화
 			# command_list += command[23] + '\n -> キル回数を確認します。\n\n'     #!킬횟수 확인
 			# command_list += command[23] + '：[名前]\n\n'                     #!킬
@@ -1313,9 +1313,9 @@ while True:
 			await dbLoad()
 
 			if LoadChk == 0:
-				await ctx.send('<DBを読み込みました。>', tts=False)
+				await ctx.send('<DBを読み込んだわー( ・∇・)。>', tts=False)
 			else:
-				await ctx.send('<データがありません。>', tts=False)
+				await ctx.send('<データがないよー( ・∇・)POTもないよー( ・∇・)。>', tts=False)
 		else:
 			return
 
@@ -1379,7 +1379,7 @@ while True:
 
 			await dbSave()
 
-			await ctx.send('<データを初期化しました。>', tts=False)
+			await ctx.send('<データを初期化したわよー( ・∇・)！>', tts=False)
 			print ("<초기화 완료>")
 		else:
 			return
@@ -1396,7 +1396,7 @@ while True:
 		global bossMungFlag
 
 		if ctx.message.channel.id == basicSetting[7]:
-			await ctx.send( '<データをDBに入れ直します。>', tts=False)
+			await ctx.send( '<データをDBに入れ直すわー( ・∇・)！>', tts=False)
 			await dbSave()
 			print("명치!")
 			#voice:await voice_client1.disconnect()
@@ -1513,7 +1513,7 @@ while True:
 			real_money = floor(floor(float(separate_money[1])) - cal_tax1)
 			cal_tax2 = floor(real_money/num_sep) - floor(float(floor(real_money/num_sep))*0.95)
 			if num_sep == 0 :
-				await ctx.send('```分配人数が０です。正しく入力してください。```', tts=False)
+				await ctx.send('```分配人数が０よー( ・∇・)！正しく入力してねー！```', tts=False)
 			else :
 				embed = discord.Embed(
 					title = "----- 分配結果！ -----",
@@ -1535,7 +1535,7 @@ while True:
 				num_cong = int(ladder[0])
 				del(ladder[0])
 			except ValueError:
-				return await ctx.send('```抽選人数は数字で入力してください。\nex)！抽選：１：A：B：C ...```')
+				return await ctx.send('```抽選人数は数字で入力してねー( ・∇・)！\nex)！抽選：１：A：B：C ...```')
 			await LadderFunc(num_cong, ladder, ctx)
 		else:
 			return
@@ -1642,7 +1642,7 @@ while True:
 			await dbLoad()
 			await dbSave()
 
-			await ctx.send('<データの一括入力が完了しました。>', tts=False)
+			await ctx.send('<データの一括入力が完了したわよー( ・∇・)！>', tts=False)
 			print ("<보스 일괄 입력 완료>")
 		else:
 			return
@@ -2352,7 +2352,7 @@ while True:
 			race_val = []
 			random_pos = []
 			racing_result = []
-			output = ':camera: :camera: :camera:  楽しいレーシング!  :camera: :camera: :camera:\n'
+			output = ':camera: :camera: :camera:  楽しいレーシング!今日もわたしが一位よおおおおお！  :camera: :camera: :camera:\n'
 			#racing_unit = [':giraffe:', ':elephant:', ':tiger2:', ':hippopotamus:', ':crocodile:',':leopard:',':ox:', ':sheep:', ':pig2:',':dromedary_camel:',':dragon:',':rabbit2:'] #동물스킨
 			#racing_unit = [':red_car:', ':taxi:', ':bus:', ':trolleybus:', ':race_car:', ':police_car:', ':ambulance:', ':fire_engine:', ':minibus:', ':truck:', ':articulated_lorry:', ':tractor:', ':scooter:', ':manual_wheelchair:', ':motor_scooter:', ':auto_rickshaw:', ':blue_car:', ':bike:', ':helicopter:', ':steam_locomotive:']  #탈것스킨
 			#random.shuffle(racing_unit)
@@ -2374,10 +2374,10 @@ while True:
 			field_size = 60
 			tmp_race_tab = 35 - len(racing_member)
 			if len(racing_member) <= 1:
-				await ctx.send('人数が一人以下です。')
+				await ctx.send('人数が一人以下よー( ・∇・)！')
 				return
 			elif len(racing_member) >= 13:
-				await ctx.send('人数が１２人を超えました。')
+				await ctx.send('人数が１２人を超えたわ！わたしには無理いいいいいい！。')
 				return
 			else :
 				race_val = random.sample(range(tmp_race_tab, tmp_race_tab+len(racing_member)), len(racing_member))
@@ -2563,7 +2563,7 @@ while True:
 
 	@client.command(name='！クベーラ')
 	async def test_msg_1_(ctx):
-		await ctx.send('全てのデータを削除しました。', tts=False)
+		await ctx.send('全てのデータを削除したわよー( ・∇・)！', tts=False)
 
 	# Bot
 	@client.command(name='！愛してる')
@@ -2579,7 +2579,7 @@ while True:
 		await ctx.send('「家庭的でエロい子が好き。」', tts=False)
 	@client.command(name='バロエンド')
 	async def test_msg_6_(ctx):
-		await ctx.send('バロの湧き時間です。（確定）', tts=False)
+		await ctx.send('バロの湧き時間よー( ・∇・)！（確定）', tts=False)
 	# WIZ
 	@client.command(name='！かるぼなーら')
 	async def test_msg_7_(ctx):
@@ -2765,7 +2765,7 @@ while True:
 						tmp_bossTimeString[i] = bossTimeString[i] = nextTime.strftime('%H:%M:%S')
 						tmp_bossDateString[i] = bossDateString[i] = nextTime.strftime('%Y-%m-%d')
 						embed = discord.Embed(
-								description= '```次、' + bossData[i][0] + 'の湧き時間は ' + bossTimeString[i][:5] + ' です。```',
+								description= '```次、' + bossData[i][0] + 'の湧き時間は ' + bossTimeString[i][:5] + ' よー( ・∇・)！```',
 								color=0xff0000
 								)
 						await client.get_channel(channel).send(embed=embed, tts=False)
@@ -2774,7 +2774,7 @@ while True:
 					if message.content.startswith(bossData[i][0] +'なし'):
 						################ 미입력 보스 ################
 						if bossData[i][2] == '0' :
-							await client.get_channel(channel).send('```' + bossData[i][0] + 'は確定湧きボスです。```', tts=False)
+							await client.get_channel(channel).send('```' + bossData[i][0] + 'は確定湧きボスよー( ・∇・)！```', tts=False)
 						################ 멍 보스 ################
 						else :
 							if hello.find('  ') != -1 :
@@ -2820,7 +2820,7 @@ while True:
 								tmp_bossTimeString[i] = bossTimeString[i] = temptime.strftime('%H:%M:%S')
 								tmp_bossDateString[i] = bossDateString[i] = temptime.strftime('%Y-%m-%d')
 								embed = discord.Embed(
-										description= '```次、' + bossData[i][0] + 'の湧き時間は ' + bossTimeString[i][:5] + ' です。```',
+										description= '```次、' + bossData[i][0] + 'の湧き時間は ' + bossTimeString[i][:5] + ' よー( ・∇・)！```',
 										color=0xff0000
 										)
 								await client.get_channel(channel).send(embed=embed, tts=False)
@@ -2840,12 +2840,12 @@ while True:
 									tmp_bossTimeString[i] = bossTimeString[i] = nextTime.strftime('%H:%M:%S')
 									tmp_bossDateString[i] = bossDateString[i] = nextTime.strftime('%Y-%m-%d')
 									embed = discord.Embed(
-											description= '```次、' + bossData[i][0] + 'の湧き時間は ' + bossTimeString[i][:5] + ' です。```',
+											description= '```次、' + bossData[i][0] + 'の湧き時間は ' + bossTimeString[i][:5] + ' よー( ・∇・)！```',
 											color=0xff0000
 											)
 									await client.get_channel(channel).send(embed=embed, tts=False)
 								else:
-									await client.get_channel(channel).send('```まだ' + bossData[i][0] + 'の湧き時間ではありません。次の時間に確認してみてください。[' + bossTimeString[i][:5] + ']```', tts=False)
+									await client.get_channel(channel).send('```まだ' + bossData[i][0] + 'の湧き時間じゃないわー( ・∇・)。次の時間に確認してみてねー！。[' + bossTimeString[i][:5] + ']```', tts=False)
 
 					################ 예상 보스 타임 입력 ################
 					if message.content.startswith(bossData[i][0] +'予想'):
@@ -2888,12 +2888,12 @@ while True:
 							tmp_bossTimeString[i] = bossTimeString[i] = nextTime.strftime('%H:%M:%S')
 							tmp_bossDateString[i] = bossDateString[i] = nextTime.strftime('%Y-%m-%d')
 							embed = discord.Embed(
-									description= '```次、' + bossData[i][0] + 'の湧き時間は ' + bossTimeString[i][:5] + ' です。```',
+									description= '```次、' + bossData[i][0] + 'の湧き時間は ' + bossTimeString[i][:5] + ' よー( ・∇・)！```',
 									color=0xff0000
 									)
 							await client.get_channel(channel).send(embed=embed, tts=False)
 						else:
-							await client.get_channel(channel).send('```' + bossData[i][0] +'の予想湧き時間を入力してください。```', tts=False)
+							await client.get_channel(channel).send('```' + bossData[i][0] +'の予想湧き時間を入力してねー( ・∇・)！```', tts=False)
 
 					################ 보스타임 삭제 ################
 					if message.content == bossData[i][0] +'削除':
@@ -2910,7 +2910,7 @@ while True:
 						bossMungTime[i] = '1987-09-12 10:30'
 						bossAutoMungCnt[i] = 0
 						bossAutoMungTime[i] = '1987-09-12 10:30'
-						await client.get_channel(channel).send('<' + bossData[i][0] + 'の時間記録を削除しました。>', tts=False)
+						await client.get_channel(channel).send('<' + bossData[i][0] + 'の時間記録を削除したわよー( ・∇・)！>', tts=False)
 						await dbSave()
 						print ('<' + bossData[i][0] + ' 삭제완료>')
 
@@ -2918,11 +2918,11 @@ while True:
 					if message.content.startswith(bossData[i][0] +'：') or message.content.startswith(bossData[i][0] +':') or message.content.startswith(bossData[i][0] +'　') or message.content.startswith(bossData[i][0] +' '):
 						tmp_msg = bossData[i][0] + '：'
 						bossData[i][6] = hello[len(tmp_msg):]
-						await client.get_channel(channel).send('<' + bossData[i][0] + 'にメモ [ ' + bossData[i][6] + ' ] を登録しました。>', tts=False)
+						await client.get_channel(channel).send('<' + bossData[i][0] + 'にメモ [ ' + bossData[i][6] + ' ] を登録したわよー( ・∇・)！>', tts=False)
 
 					if message.content.startswith(bossData[i][0] +'メモ削除'):
 						bossData[i][6] = ''
-						await client.get_channel(channel).send('<' + bossData[i][0] + 'のメモを削除しました。>', tts=False)
+						await client.get_channel(channel).send('<' + bossData[i][0] + 'のメモを削除したわよー( ・∇・)！>', tts=False)
 
 		await client.process_commands(ori_msg)
 
